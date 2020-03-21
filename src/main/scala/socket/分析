@@ -1,0 +1,9 @@
+RPCClient
+    发送的是消息：
+        样例类，做模式匹配的时候性能很好
+        case class(id Int,message:String)
+RPCServer
+    消息有不同的类型
+        注册消息(username:String,passwd:String)
+        注册返回消息(username:String,passwd:String)
+    心跳消息(id Int,Context:String)
