@@ -5,8 +5,30 @@ import org.apache.spark.sql.SparkSession
 
 object GraphxTest2 {
   def main(args: Array[String]): Unit = {
-    val userData = "data\\graph\\test1\\users.txt"
-    val followersData = "data\\graph\\test1\\followers.txt"
+    val userData = "data\\graph\\test1.json\\users.txt"
+    val followersData = "data\\graph\\test1.json\\followers.txt"
+
+    val spark = SparkSession
+      .builder()
+      .master("local[*]")
+      .appName(this.getClass.getSimpleName)
+      .getOrCreate()
+    val sc = spark.sparkContext
+
+    //加载边的数据,每一行数据即表示一张图
+    val graph = GraphLoader.edgeListFile(sc, followersData)
+
+
+    // 这个方法很重要，返回结果，去重，且以一组最小的值作为 value
+    val cc = graph.connectedComponents().vertices
+   // cc.foreach(println)
+    test()
+    spark.stop()
+  }
+
+  def test(): Unit = {
+    val userData = "data\\graph\\test1.json\\users.txt"
+    val followersData = "data\\graph\\test1.json\\followers.txt"
 
     val spark = SparkSession
       .builder()
