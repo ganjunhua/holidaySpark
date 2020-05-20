@@ -15,7 +15,7 @@ object StreamingKafkaConsumer {
       .setMaster("local[*]")
     val ssc = new StreamingContext(conf, Seconds(1))
     Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
-    val topic =("test1").split("\\,").toSet
+    val topic =("test1.json").split("\\,").toSet
     val kafkaParmas = Map[String, String]("metadata.broker.list" -> "holiday-1:9092,holiday-2:9092:holiday-3:9092")
     // createDirectStream[String, String, StringDecoder, StringDecoder]
     // String = 主题的类型
