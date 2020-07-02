@@ -1,0 +1,3 @@
+hadoop hadoop
+java scala
+oracle mysql
