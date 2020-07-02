@@ -1,5 +1,7 @@
 package datastructure.unit2;
 
+import datastructure.statck.unit3.ArrayQueue;
+
 public class ArrayTest2<E> {
     private E[] data;
     private int size;
@@ -155,5 +157,7 @@ public class ArrayTest2<E> {
         res.append(']');
         return res.toString();
     }
+
+
 
 }
