@@ -55,10 +55,14 @@ public class ArrayQueue<E> implements Queue<E> {
     }
     public static void main(String[] args) {
         ArrayQueue<Integer> queue = new ArrayQueue<Integer>();
-
+        System.out.println(9 % 3 );
+        System.out.println(2 % 3 );
+        System.out.println(3 % 3 );
+        System.out.println(4 % 3 );
+        System.out.println(7 % 3 );
         for (int i = 0; i<10; i++){
             queue.enqueue(i);
-            System.out.println(queue);
+        System.out.println(queue);
 
             if (i%3 ==2){
                 queue.dequeue();
